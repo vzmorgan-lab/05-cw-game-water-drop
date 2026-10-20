@@ -6,8 +6,8 @@ const gameContainer = document.getElementById("game-container");
 const scoreDisplay = document.getElementById("score");
 const timeDisplay = document.getElementById("time");
 const startButton = document.getElementById("start-btn");
+const resetButton = document.getElementById("reset-btn");
 const messageDisplay = document.getElementById("message");
-const startMessage = document.getElementById("start-message");
 
 // Game settings
 const GAME_LENGTH = 30;
@@ -25,24 +25,28 @@ let activeDrops = new Set();
 
 // Start or restart the game
 startButton.addEventListener("click", startGame);
+resetButton.addEventListener("click", resetGame);
 
-function startGame() {
-    // Clear any previous timers
+function clearGame() {
     clearInterval(dropMaker);
     clearInterval(timer);
+
+    activeDrops.forEach(drop => {
+        clearTimeout(drop.fallTimeout);
+        drop.remove();
+    });
+
+    activeDrops.clear();
+    gameContainer.replaceChildren();
+}
+
+function startGame() {
+    clearGame();
 
     // Reset the game state
     gameRunning = true;
     score = 0;
     timeLeft = GAME_LENGTH;
-
-    // Remove old drops and confetti
-    activeDrops.forEach(drop => {
-        clearTimeout(drop.fallTimeout);
-    });
-
-    activeDrops.clear();
-    gameContainer.innerHTML = "";
 
     // Update the display
     scoreDisplay.textContent = score;
@@ -51,8 +55,6 @@ function startGame() {
     startButton.textContent = "Restart Game";
 
     // Create new drops
-    startMessage?.remove();
-
     dropMaker = setInterval(createDrop, DROP_INTERVAL);
 
     // Start the countdown
@@ -64,6 +66,23 @@ function startGame() {
             endGame(false);
         }
     }, 1000);
+}
+
+function resetGame() {
+    gameRunning = false;
+    clearGame();
+
+    score = 0;
+    timeLeft = GAME_LENGTH;
+    scoreDisplay.textContent = score;
+    timeDisplay.textContent = timeLeft;
+    messageDisplay.textContent = "Collect clean water and avoid dirty water!";
+    startButton.textContent = "Start Game";
+
+    const startMessage = document.createElement("div");
+    startMessage.id = "start-message";
+    startMessage.textContent = 'Press "Start Game" to begin!';
+    gameContainer.appendChild(startMessage);
 }
 
 // Create a falling water drop

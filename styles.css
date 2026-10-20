@@ -30,6 +30,12 @@ body {
     max-width: 800px;
 }
 
+.brand-logo {
+    display: block;
+    width: min(70vw, 260px);
+    height: auto;
+}
+
 .game-title {
     color: #17324d;
     font-size: 48px;
@@ -61,9 +67,9 @@ body {
     font-weight: bold;
 }
 
-#start-btn {
+#start-btn,
+#reset-btn {
     padding: 12px 20px;
-    background-color: #FFC907;
     color: #222;
     border: none;
     border-radius: 6px;
@@ -72,11 +78,25 @@ body {
     font-weight: bold;
 }
 
+#start-btn {
+    background-color: #FFC907;
+}
+
 #start-btn:hover {
     background-color: #e6b400;
 }
 
-#start-btn:focus-visible {
+#reset-btn {
+    background-color: #e6f7ff;
+    border: 2px solid #2E9DF7;
+}
+
+#reset-btn:hover {
+    background-color: #d2efff;
+}
+
+#start-btn:focus-visible,
+#reset-btn:focus-visible {
     outline: 3px solid #17324d;
     outline-offset: 3px;
 }
@@ -237,8 +257,4 @@ body {
     .instructions {
         gap: 10px;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d39718d (commit "Build Water Drop Game with HTML, CSS, and JavaScript")
