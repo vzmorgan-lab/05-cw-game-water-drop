@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<<<<<<< HEAD
     <header class="site-header">
         <a class="brand" href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer" aria-label="charity: water website">
             <img src="img/cw_logo-horizontal.png" alt="charity: water">
@@ -30,7 +29,7 @@
             <div class="game-toolbar">
                 <div class="stat">
                     <span class="stat-label">SCORE</span>
-                    <strong id="score">0</strong>
+                    <strong id="score" aria-live="polite" aria-atomic="true">0</strong>
                 </div>
                 <div class="stat">
                     <span class="stat-label">TIME LEFT</span>
@@ -73,8 +72,9 @@
                 <button id="start-btn" class="primary-btn" type="button">
                     Start Game
                 </button>
-                <button id="reset-btn" class="reset-btn" type="button">
-                    Reset
+                <button id="reset-btn" class="reset-btn" type="button"
+                        aria-label="Reset game, clear score, and stop play">
+                    Reset Game
                 </button>
             </div>
 
@@ -120,12 +120,6 @@
             <a href="https://www.charitywater.org/"
                target="_blank" rel="noopener noreferrer">charity: water</a>
             · An independent educational project
-=======
-    <div class="game-wrapper">
-        <h1 class="game-title">Water Drop 💧</h1>
-        <p class="game-tagline">
-            Catch the clean drops, avoid the dirty ones!
->>>>>>> c40fbd1 (git commit -m "Build Water Drop game prototype")
         </p>
     </footer>
 
