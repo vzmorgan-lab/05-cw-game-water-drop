@@ -1,18 +1,17 @@
-
-/* Water Drop — Project 6 */
+/* Charity: water brand colors
+   Yellow: #FFC907
+   Blue:   #2E9DF7
+*/
 
 :root {
-    --yellow: #ffc907;
-    --blue: #2e9df7;
-    --light-blue: #eaf6ff;
-    --dark: #202b36;
-    --muted: #66717c;
-    --white: #ffffff;
-    --dirty: #8b563b;
-    --green: #159a48;
+    --brand-yellow: #FFC907;
+    --brand-blue: #2E9DF7;
+    --brand-ink: #171717;
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -37,10 +36,11 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    padding: 18px max(5%, calc((100% - 1100px) / 2));
-    background: var(--white);
-    border-bottom: 3px solid var(--yellow);
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f0f8ff;
+    font-family: Arial, Avenir, sans-serif;
+    color: var(--brand-ink);
 }
 
 .brand {
@@ -49,24 +49,15 @@ a {
     text-decoration: none;
 }
 
-.brand img {
+.brand-logo {
     display: block;
-    width: min(180px, 48vw);
+    width: min(275px, 75vw);
     height: auto;
 }
 
-.header-label {
-    color: var(--muted);
-    font-size: 0.85rem;
-}
-
-.game-wrapper {
-    width: min(920px, 92%);
-    margin: 0 auto;
-}
-
-.intro {
-    padding: 40px 12px 24px;
+.game-title {
+    color: var(--brand-ink);
+    font-size: 48px;
     text-align: center;
 }
 
@@ -142,10 +133,13 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 14px;
-    background: #fffdf5;
-    border-bottom: 1px solid #edf0f2;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+    border-top: 4px solid var(--brand-yellow);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .settings label {
@@ -153,25 +147,33 @@ h1 {
     font-weight: 800;
 }
 
-.settings select,
-.sound-btn {
-    min-height: 44px;
-    padding: 7px 12px;
-    border: 1px solid #cbd5de;
-    border-radius: 9px;
-    background: var(--white);
-    color: var(--dark);
+#start-btn {
+    padding: 12px 20px;
+    background-color: var(--brand-yellow);
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.sound-btn {
-    cursor: pointer;
-    font-weight: 700;
+#start-btn:hover {
+    background-color: #e6b400;
+}
+
+#start-btn:focus-visible {
+    outline: 3px solid var(--brand-ink);
+    outline-offset: 3px;
 }
 
 #game-container {
     position: relative;
     width: 100%;
-    height: 390px;
+    height: 500px;
+    background-color: #e6f7ff;
+    border: 3px solid var(--brand-blue);
+    border-radius: 10px;
     overflow: hidden;
     background:
         radial-gradient(ellipse at 15% 15%, rgba(255, 201, 7, 0.14), transparent 30%),
@@ -234,8 +236,8 @@ h1 {
 }
 
 .clean-drop {
-    background: var(--blue);
-    border: 3px solid rgba(255, 255, 255, 0.9);
+    background-color: var(--brand-blue);
+    border: 2px solid #1678c5;
 }
 
 .dirty-drop {
@@ -289,11 +291,8 @@ h1 {
     background: #34485b;
 }
 
-.primary-btn:focus-visible,
-.reset-btn:focus-visible,
-.sound-btn:focus-visible,
-.settings select:focus-visible {
-    outline: 3px solid var(--blue);
+.water-drop:focus-visible {
+    outline: 3px solid var(--brand-yellow);
     outline-offset: 3px;
 }
 
@@ -334,26 +333,8 @@ h1 {
     transform: rotate(-45deg);
 }
 
-.clean-example {
-    background: var(--blue);
-}
-
-.dirty-example {
-    background: var(--dirty);
-}
-
-.mission {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 18px;
-    margin: 30px 0;
-    padding: 25px;
-    background: #fff4bf;
-    border-radius: 18px;
-}
-
-.mission-icon {
-    font-size: 2.4rem;
+.blue-key {
+    background-color: var(--brand-blue);
 }
 
 .mission h2 {
