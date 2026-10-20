@@ -1,6 +1,7 @@
 // Water Drop Game
 
-// Game elements
+/* Water Drop — Project 6 */
+
 const gameContainer = document.getElementById("game-container");
 const scoreDisplay = document.getElementById("score");
 const timeDisplay = document.getElementById("time");
